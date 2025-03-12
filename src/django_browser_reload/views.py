@@ -105,7 +105,7 @@ def on_autoreload_started(*, sender: BaseReloader, **kwargs: Any) -> None:
 def on_file_changed(*, file_path: Path, **kwargs: Any) -> bool | None:
     # Returning True tells Django *not* to reload
 
-    if file_path.suffix == ".css":
+    if file_path.suffix == ".css" or file_path.suffix == ".js" or file_path.suffix == ".map":
         return False
 
     file_parents = file_path.parents
